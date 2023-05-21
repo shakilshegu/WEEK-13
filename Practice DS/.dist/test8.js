@@ -1,0 +1,156 @@
+// class Node {
+//     constructor(value){
+//         this.value = value
+//         this.next = null
+//     }
+// }
+// class linkedlist{
+//     constructor(){
+//         this.head = null
+//         this.tail = null
+//     }
+//     insert(value){
+//         const newnode = new Node(value)
+//         if(this.head == null ){
+//             this.head = newnode
+//         }else{
+//             this.tail.next= newnode
+//         }
+//         this.tail = newnode
+//     }
+//     insrttail(value){
+//       const newnode = new Node(value)
+//       if(this.tail){
+//         this.tail.next = newnode
+//         this.tail = newnode
+//       }
+//     }
+//     detetail(){
+//         let curnode = this.head
+//         while (curnode) {
+//             if(curnode.next == this.tail){
+//                 this.tail =curnode
+//                 this.tail.next = null
+//                 return
+//             }
+//             curnode = curnode.next
+//         }
+//     }
+//     print(){
+//         let curnode = this.head
+//         while (curnode) {
+//             console.log(curnode.value);
+//             curnode= curnode.next
+//         }
+//     }
+// }
+// let list  = new linkedlist()
+// let arr = [1,2,3,5,745,67,8,09]
+// for(i=0;i<arr.length;i++){
+//     list.insert(arr[i])
+// }
+// list.insrttail(1000)
+// list.detetail()
+// list.print()
+
+class Node {
+    constructor(value){
+        this.value = value
+        this.next = null
+    }
+}
+class linkedlist {
+    constructor(){
+        this.head = null
+        this.tail = null
+    }
+    insert(value){
+        const newnode = new Node(value)
+        if(this.head == null){
+            this.head = newnode
+        }else{
+            this.tail.next = newnode
+        }
+        this.tail = newnode
+    }
+    inserthead(value){
+        const newnode = new Node(value)
+        if(this.head){
+            newnode.next = this.head
+            this.head = newnode
+        }
+    }
+    inserttail(value){
+        const newnode = new Node(value)
+        if(this.tail){
+            this.tail.next = newnode
+            this.tail =newnode
+        }
+    }
+    insertafter(value,addvalue){
+        const newnode = new Node(value)
+        let curnode = this.head
+        while(curnode){
+            if(curnode.value == addvalue){
+                newnode.next = curnode.next
+                curnode.next = newnode
+                if(curnode == this.tail){
+                    this.tail = newnode
+                }
+            }
+            curnode = curnode.next
+        }
+    }
+    sum(){
+        let curnode = this.head
+        let sum = 0
+        while (curnode) {
+            sum = sum+curnode.value
+            curnode = curnode.next
+        }
+        console.log(sum)
+    }
+    middile(){
+        let mid = this.head
+        let temp = this.head
+        while(temp&&temp.next){
+                mid = mid.next
+                temp = temp.next.next
+        }
+        console.log(mid.value);
+    }
+    detetetail(){
+        if(!this.head){
+            return
+        }
+        let curnode = this.head
+        while (curnode) {
+            if(curnode.next == this.tail){
+                this.tail = curnode
+                this.tail.next = null
+                return
+            }
+            curnode = curnode.next
+        }
+    }
+    print(){
+        let curnode = this.head
+        while(curnode){
+            console.log(curnode.value);
+            curnode = curnode.next
+        }
+    }
+}
+
+let list = new linkedlist()
+let arr = [1,2,3,4,5,6,7,8,9]
+for(i=0;i<arr.length;i++){
+    list.insert(arr[i])
+}
+list.inserthead(2000)
+list.inserttail(5000)
+list.detetetail()
+list.insertafter(111,4)
+list.sum()
+list.middile()
+list.print()
