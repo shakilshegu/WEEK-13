@@ -203,10 +203,10 @@
 // arr.unshift(leat)
 // let y = arr.join("")
 // console.log(y);
+
 //  const arr = [5,4,5,2,4,6,8,9]
 //  console.log(m);
 //  let target = 10
- 
 //  function find(arr,target) {
 //     for(i=0;i<arr.length;i++){
 //         for(j=i+1;j<arr.length;j++){

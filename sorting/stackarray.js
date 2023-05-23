@@ -56,6 +56,21 @@ class Stack {
         const middleIndex = Math.floor(this.items.length / 2);
         this.items.splice(middleIndex, 1);
     }
+    findSecondLargest() {
+        let largest = this.items[0];
+        let secondLargest = this.items[1];
+
+        for (let i = 2; i < this.items.length; i++) {
+            if (this.items[i] > largest) {
+                secondLargest = largest;
+                largest = this.items[i];
+            } else if (this.items[i] > secondLargest) {
+                secondLargest = this.items[i];
+            }
+        }
+
+        return secondLargest;
+    }
 }
 
 const stack1 = new Stack();
@@ -84,6 +99,7 @@ stack1.print();
 
 stack1.deleteMiddle();
 console.log("After deleting middle element:");
+console.log("Second largest element:", stack1.findSecondLargest());
 stack1.print();
 
 
