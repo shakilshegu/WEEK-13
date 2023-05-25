@@ -67,3 +67,27 @@ function quick(m){
 }
 let m =  [1,4,6,8,5,8,5,8,5]
 console.log(quick(m))
+
+function qick (frr){
+    if(frr.length<2){
+        return arr
+    }
+    let middleIndex = Math.floor(frr.length/2)
+    let pivot = frr[middleIndex]
+    let left = []
+    let right = []
+    for(let i = 0 ;i<frr.length;i++){
+        if(i === middleIndex){
+            continue
+        }
+        if(frr[i]<pivot){
+            left.push(frr[i])
+        }else{
+            right.push(frr[i])
+        }
+    }
+    return [...quick(left),pivot,...quick(right)]
+}
+
+const frr = [1, 3, 5, 57, 2, 86, 2, 1, 30];
+console.log(quick(frr));
