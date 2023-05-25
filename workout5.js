@@ -18,5 +18,6 @@ function quick(arr){
     }
     return [...quick(left),pivot,...quick(right)]
 }
+
 let arr = [2,3,4,51,5,6,3,5]
 console.log(quick(arr));
