@@ -8,6 +8,7 @@ class StackNode {
 class Stack {
   constructor() {
       this.top = null;
+      this.size = 0
   }
   
   push(value) {
@@ -27,6 +28,31 @@ class Stack {
           this.top = this.top.next
       }
   }
+  pomiddile() {
+    if (this.top === null) {
+        console.log("Stack is empty.");
+        return;
+    }
+
+    const middleIndex = Math.floor(this.size / 2);
+    let currNode = this.top;
+    let prevNode = null;
+    let count = 0;
+    
+    while (count < middleIndex) {
+        prevNode = currNode;
+        currNode = currNode.next;
+        count++;
+    }
+    
+    if (prevNode !== null) {
+        prevNode.next = currNode.next;
+    } else {
+        this.top = currNode.next;
+    }
+    
+    this.size--;
+}
   peek(){
       if(this.top === null){
           console.log("empty");
